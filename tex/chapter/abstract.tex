@@ -1,0 +1,25 @@
+\selectlanguage{english}
+\begin{abstract}
+    The \gls{ict} industry and network researchers use traffic generator tools to a large extent to test their systems.
+    The industry uses reliable and rigid hardware-based platform tools for high-performance network testing.
+    The research community commonly uses software-based tools in, for example, experiments because of economic and flexibility aspects.
+    As a result, it is possible to run these tools on different systems and hardware.
+    In this thesis, we examine the software traffic generators Iperf, Mausezahn, Ostinato in a closed loop physical and virtual environment,
+    that is, to evaluate the applicability of the tools and find sources of inaccuracy for a given traffic profile.
+    For each network tool, we measure the throughput from 64- to 4096-byte in packet sizes.
+    Also, we encapsulate each tool with container technology using Docker to reach a more reproducible and portable research.
+    Our results show that the \acrshort{cpu} primarily limits the throughput for small packet sizes, and saturates the 1000 \acrshort{mbps} link for larger packet sizes.
+    Finally, we suggest using these tools for simpler and automated network tests.
+\end{abstract}
+\clearpage
+\begin{foreignabstract}{swedish}
+    IT-branschen och n\"{a}tverksforskare anv\"{a}nder sig av trafikgeneratorer till stor del f\"{o}r att testa sina system.
+    Industrin anv\"{a}nder sig av stabila och p\r{a}litliga h\r{a}rdvaruplattformar f\"{o}r h\"{o}gpresterande n\"{a}tverkstester.
+    Forskare brukar anv\"{a}nda mjukvarubaserade verktyg i till exempel experiment p\r{a} grund av ekonomiska och flexibilitet sk\"{a}l.
+    Det \"{a}r d\"{a}rf\"{o}r m\"{o}jligt att anv\"{a}nda dessa verktyg p\r{a} olika system och h\r{a}rdvaror.
+    I denna avhandling unders\"{o}ker vi mjukvaru-trafikgeneratorerna Iperf, Mausezahn, Ostinato i en isolerad fysisk och virtuell milj\"{o}, det vill s\"{a}ga f\"{o}r att utv\"{a}rdera anv\"{a}ndbarheten av verktygen och hitta felk\"{a}llor f\"{o}r en given trafikprofil.
+    F\"{o}r varje n\"{a}tverksverktyg m\"{a}ter vi genomstr\"{o}mningen fr\r{a}n 64 till 4096 byte i paketstorlekar.
+    Dessutom paketerar vi varje verktyg med molnteknologin Docker f\"{o}r att n\r{a} ett mer reproducerbart och portabelt arbete.
+    V\r{a}ra resultat visar att processorn begr\"{a}nsar genomstr\"{o}mningen f\"{o}r sm\r{a} paketstorlekar och saturerar 1000 Mbps-l\"{a}nken f\"{o}r st\"{o}rre paketstorlekar.
+    Slutligen f\"{o}resl\r{a}r vi att man kan anv\"{a}nda dessa verktyg f\"{o}r enklare och automatiserade n\"{a}tverkstester.
+\end{foreignabstract}

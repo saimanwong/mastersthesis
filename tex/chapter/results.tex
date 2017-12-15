@@ -1,0 +1,25 @@
+\chapter{Results}\label{results}
+
+We used the parameter settings in \cref{section:settings} to send \acrshort{udp} traffic with various packet sizes between two hosts in a physical and virtual environment.
+In both environments presented in \cref{section:labenv}, the first host (source) generates and sends the traffic to the second host (sink) which captures it.
+For each packet size varied between 64 and 4096 bytes, we ran 100 simulations and each run for 10 seconds.
+The following couple of sections present the performance of the traffic generators concerning throughput.
+
+
+\section{Physical Hardware}
+\input{plot/experiment1}
+
+\skippara As shown in \cref{fig:experiment_host}, Ostinato reached the highest throughput of 984.61$\pm$14.54 \acrshort{mbps} at packet size 4096 byte.
+Mausezahn and Iperf reached their maximum throughput of 965.94$\pm$23.47 \acrshort{mbps} and 965.55$\pm$48.67 \acrshort{mbps} respectively, both at packet size 3072 byte.
+Iperf had a slow start from 64 to 768 bytes in packet size.
+That is, in contrast to Ostinato and Mausezahn that achieved similar throughput from 256 to 3072 bytes in packet size.
+Additionally at packet sizes 3072 and 4096 bytes, Ostinato has a throughput sparseness (standard deviation) that is more than half compared to Mausezahn and Iperf.
+
+\section{Virtual Hardware}
+\input{plot/experiment2}
+
+\skippara \cref{fig:experiment_vm} illustrates the results from the virtual lab.
+Mausezahn reached the highest throughput of 2023.85$\pm$23.47 \acrshort{mbps} at 4096 bytes in packet size.
+Ostinato and Iperf achieved 1969.38$\pm$20.42 and 1957.25$\pm$48.67 \acrshort{mbps} maximum throughput at packet sizes 3072 and 4096 bytes respectively.
+All the network tools keep relatively and similar throughput rate.
+Except, Ostinato at packet size 3072 byte where it diverges from its maximum throughput.

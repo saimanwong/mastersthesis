@@ -1,0 +1,18 @@
+\chapter{Conclusion}\label{conclusion}
+
+Our study evaluates the performance of the network tools Iperf, Mausezahn, and Ostinato.
+We use the metrics throughput and varying packet sizes to measure the performance of these in closed-loop environments with both physical and virtual hardware, as summarized in \cref{tab:comparesummary}.
+The tools operate in the user space and use the host \acrshort{os}' default network stack to craft and send traffic.
+Given the tools generality, the user can efficiently conduct smaller tests and deploy them on many various systems.
+Also, due to its generality, the tools depend heavily on the underlying system to generate traffic with specific characteristics.
+Thus, the responsibility lies with the user to grasp both a practical and theoretical understanding of the tool and the underlying system.
+
+\skippara In the previous and our work, we emphasize the importance to identify a specific purpose and choose the most suitable metrics and tools accordingly.
+Our results show that the \acrshort{cpu} and \acrshort{nic} limit the throughput produced from the userspace tools for different packet sizes.
+The results remain consistent alongside previous studies.
+Besides, we run the userspace tools on top of a virtual switch and hardware and show that only the \acrshort{cpu} limits the tool's throughput performance.
+Conclusively, the tools are useful for smaller end-to-end system tests.
+Especially suitable, in combination with container technology to achieve higher reproducibility and automation capabilities in both research and industry.
+
+\skippara In the future, it would be interesting to examine network tools that use high-speed packet processing libraries, for example, \acrfull{dpdk} on commodity hardware.
+Also, to further investigate software tools that facilitate network virtualization, for example, Software-Defined Networking (SDN) technologies.

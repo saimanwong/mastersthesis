@@ -1,0 +1,50 @@
+\chapter{Introduction}\label{introduction}
+
+\acrfull{ict} companies, for example, cloud service providers and mobile network operators provide reliable network products, services or solutions to handle network traffic on a large scale.
+These companies rely on proprietary and hardware-based network testing tools to test their products before deployment.
+That is, to generate realistic network traffic, which is then injected into a server to verify its behavior.
+Because of high demand to send and receive information with high speed and low latency, it is essential to test the \gls{ict} solutions thoroughly.
+
+%----------------------------------------------------------------
+%
+% Problem
+%
+%----------------------------------------------------------------
+\section{Problem}
+
+In contrast to \gls{ict} enterprises, the network research community develops and uses open-source and software-based network testing tools.
+Thus, researchers use software-based network testing tools \cite{DITGDist48:online, Packetge32:online, ToolsThe22:online} in experiments because of its flexibility and for economic reasons \cite{botta2010you, molnar2013validate}.
+However, the generated network traffic from these tools is not as reliable as the one from the hardware-based platform, because of the underlying hardware and software, such as \gls{nic} and \gls{os}.
+Use of the software-based tools without an awareness of these variables, can produce inaccurate results between the generated and requested network traffic.
+
+\skippara This paper examines the software-based network traffic generators Iperf, Mausezahn, and Ostinato.
+The purpose is to test the chosen tools concerning efficiency and accuracy for different network profiles.
+Distinctively to other similar studies, this project uses the container technology Docker to encapsulate the tools for automated tests and to achieve a higher degree of a reproducibility \cite{piccolo2016tools, boettiger2015introduction, Chamberlain2014}.
+
+%----------------------------------------------------------------
+%
+% Limitation
+%
+%----------------------------------------------------------------
+\section{Limitation}
+Our study only investigates software-based traffic generators that primarily operate in user space and uses the Linux networking stack.
+
+%----------------------------------------------------------------
+%
+% Sustainability, Ethics, and Societal Aspects
+%
+%----------------------------------------------------------------
+\section{Sustainability, Ethics, and Societal Aspects}
+In modern life, the Internet is an integral part of the human environment, where stability, security, and efficiency are the essential aspects.
+This project has no direct and significant impact on sustainability in general.
+Except, the power consumption of laptops with the purpose to gather data.
+
+
+\skippara From an ethical standpoint, we documented our steps throughout our thesis and provided the code in the appendices.
+That is, to contribute to reproducible research and transparency.
+Hence, other people are encouraged to try to replicate and achieve similar results.
+However, and most likely, the results can vary because of the underlying hardware and software.
+
+\skippara Since this project only uses open source software, it is just morally right to make everything public.
+Also, the network tools used in this project are purposely for private and controlled labs or virtual environments.
+Thus, it is inadvisable to use these tools on public networks.

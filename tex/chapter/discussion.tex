@@ -1,0 +1,91 @@
+\chapter{Discussion}\label{discussion}
+
+The network research community uses software-based traffic generators for a variety of purposes because these are often open sourced and flexible to handle.
+In this project, we examined open source traffic generators that primarily operate in the user space and use the Linux default network stack.
+The authors in \cite{kolahi2011performance, srivastava2014evaluation, srivastava2014comparative} examined these type of generators, concerning throughput with varied packet sizes, over 100 \acrshort{mbps}, 10 \acrshort{gbps}, and 40 \acrshort{gbps} links.
+We presented a summary of these past research experiments in \cref{relatedwork} and \cref{table:experimentsummary}.
+We conducted similar benchmark experiments and achieved traffic characteristics comparable to theirs, but over a 1000 \acrshort{mbps} link.
+We also used container technology, Docker, to package this experiment and make it simpler to replicate.
+
+\section{Performance Evaluation}
+
+As expected from previous studies, our results in \cref{results} (\cref{fig:experiment_host} and \cref{fig:experiment_vm}) show that the throughput increased with the packet size.
+All the traffic generators yield lower throughput on smaller packet sizes because the \acrshort{cpu} is put on high workload when it has to generate these smaller packets.
+It is an expensive operation to copy data between user and kernel space on top of the Linux default network stack \cite{raumer2015performance}.
+Mainly, the experimental results are approximately between $12\%$ and $75\%$ below the theoretical throughput for 64 to 512 bytes in packet size, as shown in \cref{fig:experiment_host}.
+Thus, the \acrshort{cpu} reaches its full capacity before it saturates the link.
+
+\skippara In both labs, we noticed in broad strokes that the standard deviation also increases with the packet size, but there are exceptions.
+For example, Ostinato generated the highest throughput and lowest standard deviation in the physical lab.
+It yielded 985.61$\pm$14.54 \acrshort{mbps} at 4096 bytes packet size.
+That is, in contrast to Mausezahn and Iperf that generated 965.94$\pm$34.83 and 965.55$\pm$33.77 \acrshort{mbps}, respectively, both at 3072 bytes packet size.
+We send multiple packets at once with Ostinato in burst mode instead of single.
+It might explain why Ostinato generated the highest throughput more consistently than Mausezahn and Iperf.
+
+\skippara Our results in the physical lab reach consistent and similar traffic characteristics as the previous research, \cite{kolahi2011performance, srivastava2014evaluation, srivastava2014comparative} individually.
+That is, the traffic generators directly use the host's \acrshort{nic} to saturate the link for larger packet size, and \acrshort{cpu} limits throughput for smaller packet sizes.
+However, the results in the lab environment with virtual hardware differed from the physical one, as the tools generated over 1900 \acrshort{mbps} throughput.
+The primary reason is that we use ``internal networking''-mode \cite{Chapter680:online}.
+That is, packets flow via a virtual network switch instead of the host and its \acrshort{nic}.
+Thus, the packet processing and maximum throughput depended entirely on the host's \acrshort{cpu} thereof, the higher performance.
+
+\skippara We also encountered another unanticipated result when we experimented with Iperf.
+In \cite{srivastava2014comparative}, the authors examined the throughput of Iperf with multiple threads.
+Their \acrshort{udp} traffic did not saturate the 10 \acrshort{gbps} link ranged.
+That is, it generated from 1.05 \acrshort{mbps} to 12.6 \acrshort{mbps}, with one respectively twelve threads.
+However, our results indicate that Iperf with one thread keeps up with the throughput of both Ostinato and Mausezahn.
+We investigated it and found that Iperf 2.0.5 produced unexpected throughput on various packet sizes, similar to the latter mentioned authors' findings.
+Thus, we used Iperf 2.0.9, a newer version, with one thread in this project.
+
+\skippara Altogether, we wanted to examine the traffic generators in two different environments.
+One might argue that the lab with physical hardware yielded more realistic results compared to the virtual environment because we only used the real equipment.
+On the other side, sometimes resources are limited, then virtual environments on a single host might be a more feasible option to experiment within.
+However, in the end, it comes down to picking the most suitable tool for the job.
+It sounds simple, but it is more difficult to apply in practice, because there are a large number of traffic generators with different purposes, and we will further discuss this in \cref{discuss:tgme}.
+
+\section{Experiment Evaluation}
+
+We used the closed-loop approach to experiment with the traffic generators.
+It is a standard approach to test the behavior of both traffic generator and underlying hardware.
+That is, it consists of two directly connected hosts in a controlled and isolated environment to minimize external influences.
+Besides, we packaged the software into standardized images/Dockerfile(s), which facilitated the work for us when we were to, for example, tune the parameters and move between different environments.
+This approach had an insignificant impact on performance as the containers had direct and privileged access to the kernels resources.
+
+\subsection{Reproducible Research}
+As for reproducible research, there is a challenge to replicate the exact results, because these network tools heavily depend on the underlying system.
+However, we use container technology to achieve a reproducible research partly.
+That is, we wrote Dockerfile(s) that the user can build an image from, or make modifications to fit a specific purpose.
+Furthermore, we provide a bash-script to automatically spin up containers of these tools on two remote servers, either physical or virtual one.
+The only requirement is that the servers have Docker installed on these servers.
+
+\subsection{Validation -- Traffic Generators and Metrics}\label{discuss:tgme}
+Our literature review in \cref{sec:tg} delves into why researchers use software-based traffic generators, the different types, metrics, and challenges with them.
+However, in this section, we try to discuss our procedure, to raise awareness and maybe help other people to choose a suitable network tool or several tools.
+Additionally, we specifically discuss around and delve into \cite{botta2010you, molnar2013validate}, where the authors critically assessed a large number of traffic generators from different sources.
+
+\skippara First off, we expect a traffic generator to send traffic with specific characteristics.
+We can interpret these characteristics as different kind of requirements.
+When we talk about accuracy, it is about how well the generated synthetic traffic matches with the specified requirements and error margins.
+Thus, it is equally as important to consider which metric(s) to experiment around, as it is to pick the network tool that can fulfill these.
+
+\skippara Since there are a large number of software-based traffic generators, the authors in \cite{botta2010you, molnar2013validate} questioned the methods to validate the accuracy and reliability of these tools in the network community,
+notably, the traffic generators that primarily operate in user space on top of any arbitrary \acrshort{os} and network stack.
+That is, given the tool's generality and flexibility, it requires from the researcher(s) a greater understanding of the underlying system to produce accurate results, which is often a challenge that gets minimal attention in the literature.
+
+\skippara In regards to our findings, we used the metrics byte throughput and packet size, a similar method to \cite{kolahi2011performance, srivastava2014evaluation, srivastava2014comparative} to try to experiment with two recently active network tools (Ostinato and Iperf) and an inactive one (Mausezahn).
+We showed that these tools saturate the link at packet sizes above 4096 bytes.
+If the only purpose is to test end-to-end system performance regarding maximum throughput, then these tools can be a reasonable choice.
+However, our and \cite{kolahi2011performance, srivastava2014evaluation, srivastava2014comparative} studies do not examine other parameters, such as packet delay, loss, and fragmentation.
+As in the previously mentioned papers, we want to suggest to carefully consider which network tool is the most suitable to user's requirements.
+
+\clearpage
+\subsection{Recommendations}
+
+The tools we evaluated are flexible to use in a broad variety of environments but can yield different results depending on the circumstance.
+Thus, we recommend applying these tools in a smaller scale and low-risk environments as complements for hardware-based traffic generators.
+For example, for personal experiments and small networks with more straightforward traffic characteristics.
+
+\skippara We recommend Ostinato and Mausezahn for users that want to test and create any arbitrary packets from layer 2 and up.
+In this case, the former is a more flexible choice as it is available cross-platform, has a \acrshort{gui} and Python-\acrshort{api} with automation capabilities.
+For general bandwidth test, we recommend Iperf because the creators developed it for this specific purpose.
+Finally, we recommend a more profound research into network tools that use libraries specialized for fast packet processing on commodity hardware.

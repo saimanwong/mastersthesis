@@ -1,0 +1,62 @@
+\begin{table}
+\caption{Comparison and Summary Table of Related Work}
+\label{tab:comparesummary}
+\centering
+{\tiny\begin{tabular}{|>{\centering\arraybackslash}m{9mm}|m{30mm}|m{35mm}|m{55mm}|}
+
+\hline
+\multicolumn{1}{|>{\centering\arraybackslash}m{9mm}|}{}
+& \multicolumn{1}{>{\centering\arraybackslash}m{30mm}|}{\textbf{Traffic Generator}}
+& \multicolumn{1}{>{\centering\arraybackslash}m{35mm}|}{\shortstack[c]{\\ \textbf{Metrics} \\ frequently used \\ in literature indentified \\ by \cite{molnar2013validate}}}
+& \multicolumn{1}{>{\centering\arraybackslash}m{55mm}|}{\textbf{Lab Environment}}\\
+        \hline
+        2017 Our Work
+        & \shortstack[l]{\\ User Space \\ $-$ Iperf \\ $-$ Mausezahn \\ $-$ Ostinato}
+        & \shortstack[l]{\\ $-$ Byte Throughput \\ $-$ Packet Size \\ \hspace{2.5mm} Distribution}
+        & \shortstack[l]{\\ Physical Lab \\ $-$  Intel Core i5-2540M \acrshort{cpu} \\ $-$ 8 GB Memory \\ $-$ 1000 \acrshort{mbps} \acrshort{nic} \\ $-$ Ubuntu Server 16.04.2 \\ $-$ Linux kernel version 4.4.0 \\ $-$ Docker version 17.05.0-ce \\ \ \\ Virtual Lab \\ \quad Host \\ \qquad $-$ Intel Core i5-5257U \acrshort{cpu} \\ \qquad $-$ 8 GB Memory \\ \qquad $-$ macOS 10.12.5 \\ \qquad $-$ Oracle VM VirtualBox 5.1.22 \\ \quad Guest \\ \qquad $-$ 1 CPU \\ \qquad $-$ 2 GB Memory \\ \qquad $-$ Ubuntu server 16.04.2 \\ \qquad $-$ Linux kernel version 4.4.0 \\ \qquad $-$ Docker version 17.05.0-ce}
+        \\
+        \hline
+        \hline
+        2016 \cite{turull2016pktgen}
+        & \shortstack[l]{\\ User Space \\ $-$ Netperf \\ $-$ Iperf \\ \ \\ Kernel Space \\ $-$ Pktgen \\ \ \\ External Framework \\ $-$ Netmap  \\ $-$ Pktgen-\acrshort{dpdk}}
+        & \shortstack[l]{\\ $-$ Byte Throughput \\ $-$ Packet Size \\ \hspace{2.5mm} Distribution \\ $-$ Inter Packet Time \\ \hspace{2.5mm} Distribution}
+        & \shortstack[l]{\\ Physical Lab \\ $-$ Intel Xeon \acrshort{cpu} \\ $-$ 3 GB Memory \\ $-$ 10 \acrshort{gbps} \acrshort{nic} \\ $-$ Ubuntu 13.10 \\ $-$ Linux kernel version 3.18.0}
+        \\
+        \hline
+        \hline
+        2015 \cite{emmerich2015moongen}
+        & \shortstack[l]{\\ External Framework \\ $-$ MoonGen  \\ $-$ Pktgen-\acrshort{dpdk}}
+        & \shortstack[l]{\\ $-$ Byte Throughput \\ $-$ Packet Size \\ \hspace{2.5mm} Distribution \\ $-$ Inter Packet Time \\ \hspace{2.5mm} Distribution}
+        & \shortstack[l]{\\ Physical/Virtual Lab \\ $-$ Intel Xeon \acrshort{cpu} \\ $-$ 1/10/40 \acrshort{gbps} \acrshort{nic} \\ $-$ Debian \\ $-$ Linux kernel version 3.7 \\ $-$ Open vSwitch 2.0.0}
+        \\
+        \hline
+        \hline
+        2014 \cite{srivastava2014comparative}
+        & \shortstack[l]{\\ User Space \\ $-$ D-ITG  \\ $-$ Ostinato \\ $-$ PackETH}
+        & \shortstack[l]{\\ $-$ Byte Throughput \\ $-$ Packet Size \\ \hspace{2.5mm} Distribution}
+        & \shortstack[l]{\\ Physical Lab \\ $-$ Intel Xeon \acrshort{cpu} \\ $-$ 40 \acrshort{gbps} \acrshort{nic} \\ $-$ CentOS 6.5 \\ $-$ Linux kernel version 2.6.32}
+        \\
+        \hline
+        \hline
+        2014 \cite{srivastava2014evaluation}
+        & \shortstack[l]{\\ User Space \\ $-$ D-ITG  \\ $-$ Iperf \\ $-$ Ostinato \\ $-$ PackETH}
+        & \shortstack[l]{\\ $-$ Byte Throughput \\ $-$ Packet Size \\ \hspace{2.5mm} Distribution}
+        & \shortstack[l]{\\ Physical Lab \\ $-$ Intel Xeon \acrshort{cpu} \\ $-$ 64 GB Memory \\ $-$ 10 \acrshort{gbps} \acrshort{nic} \\ $-$ CentOS 6.2 \\ $-$ Linux kernel version 2.6.32}
+        \\
+        \hline
+        \hline
+        2011 \cite{kolahi2011performance}
+        & \shortstack[l]{\\ User Space \\ $-$ D-ITG  \\ $-$ IP-Traffic \\ $-$ Iperf \\ $-$ Netperf}
+        & \shortstack[l]{\\ $-$ Byte Throughput \\ $-$ Packet Size \\ \hspace{2.5mm} Distribution}
+        & \shortstack[l]{\\ Physical Lab \\ $-$ Intel Pentium 4 \acrshort{cpu} \\ $-$ 1 GB Memory \\ $-$ 100 \acrshort{mbps} \acrshort{nic} \\ $-$ Windows Server 2003}
+        \\
+        \hline
+        \hline
+        2010 \cite{botta2010you}
+        & \shortstack[l]{\\ User Space \\ $-$ D-ITG  \\ $-$ MGEN \\ $-$ RUDE/CRUDE \\ $-$ TG}
+        & \shortstack[l]{\\ $-$ Byte Throughput \\ $-$ Packet Size \\ \hspace{2.5mm} Distribution \\ $-$ Inter Packet Time \\ \hspace{2.5mm} Distribution}
+        & \shortstack[l]{\\ Physical Lab \\ $-$ Intel Pentium 4 \acrshort{cpu} \\ $-$ 1 \acrshort{gbps} \acrshort{nic} \\ $-$ Linux kernel version 2.6.15}
+        \\
+        \hline
+\end{tabular}}
+\end{table}

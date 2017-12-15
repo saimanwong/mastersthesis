@@ -1,0 +1,47 @@
+\chapter{Related Work}\label{relatedwork}
+
+In past research on traffic generators \cite{botta2010you, turull2016pktgen, kolahi2011performance, srivastava2014evaluation, srivastava2014comparative}, were conducted experiments in a closed-loop environment between two hosts connected via a link.
+All these experiments included throughput test on traffic generators, in either packet per second or bit rate.
+As mentioned in \cref{metrictype}, the network research community frequently uses the metrics byte throughput and packet size.
+We try to focus on the following metrics in our project.
+In \cite{kolahi2011performance, srivastava2014evaluation, srivastava2014comparative}, the authors conducted similar throughput experiments with userspace tools, and we used their method as inspiration for this project.
+
+\skippara In \cite{kolahi2011performance}, the authors generated \acrshort{tcp} traffic over a 100 \acrshort{mbps} link, packet sizes ranging from 128 to 1408 bytes, and used the tools Iperf, Netperf, D-ITG and IP Traffic.
+The authors in \cite{srivastava2014evaluation, srivastava2014comparative} generated both \acrshort{tcp} and \acrshort{udp} traffic over 10 and 40 \acrshort{gbps} links respectively, packet sizes between 64 and 8950 bytes, and with Iperf, PackETH, Ostinato, and D-ITG.
+The results are similar in all these experiments, in the sense that the throughput increases for larger packet sizes because small packet sizes introduce higher overhead and cause lower performance.
+\cref{table:experimentsummary} summarizes the highest throughput from these experiments.
+
+\input{table/experimentsummary.tex}
+
+\skippara In latterly mentioned experiments, we encountered two observations that could make it harder for us to reproduce.
+First, they used network tools with either an architecture to both send and capture traffic or only send.
+Therefore, it is unclear what method they used to monitor the traffic.
+Second, we could not find which version of the network tools they used.
+To avoid ambiguity and to make our project more reproducible, we packaged the tools into different Docker containers, which makes them easy to deploy on various of systems.
+In our safety, we try to evaluate the limits of userspace traffic generators used in Docker container environment.
+Finally, \cite{felter2015updated, chung2016using} showed that Docker containers are feasible for data-intensive applications, and reach close to native \acrshort{cpu} and memory performance, because these share the same resources as the host \acrshort{os}.
+
+
+\skippara Alternatively to our approach and as examined in \cref{metrictype}, other network testing tools operate in the kernel space, or use external libraries to circumvent the host kernel and directly access commodity \acrshort{nic} to achieve faster packet processing.
+In \cite{turull2016pktgen}, the authors developed the kernel module and traffic generator called Pktgen.
+They ran throughput, latency and packet delay variation experiments between two machines to compare their tool to the userspace tools Iperf and Netperf; as well as Pktgen-\acrshort{dpdk} and Netmap, which use an external framework to process packets, such as \acrshort{dpdk}.
+In the maximal throughput experiment for \acrshort{udp} traffic at 64 bytes packet size, former tools achieved between 150 and 350 \acrshort{mbps}, Pktgen generated a throughput of 4200 \acrshort{mbps}, and both the latter types saturated the link at 7600 \acrshort{mbps}.
+MoonGen is another high-speed and \acrshort{dpdk}-based traffic generator.
+The creators of MoonGen generated \acrshort{udp} traffic at minimal packet size and also saturated a 10 \acrshort{gbps} link at a lower clock frequency than Pktgen-\acrshort{dpdk} \cite{emmerich2015moongen}.
+We compare and summarize our method to other related studies in \cref{tab:comparesummary}.
+
+
+\skippara All the related studies used the similar experimental methodology to examine software generators.
+That is, to conduct tests in an isolated environment of two machines to avoid external influences.
+Naturally, traffic generators built closer to the hardware perform significantly better than userspace tools.
+However, the hardware and software become more adaptable and cheaper; we decided to further examine the performance of userspace tools and their use cases.
+Also, to enable \acrshort{devops}\footnote{\gls{devops} -- It is a software development philosophy, which a large number of automation and monitoring tools arose.
+Of which, Docker is one of the leading tools on the market.
+The author in \cite{boettiger2015introduction} describes the \acrshort{devops} methodology as: ``The approach is characterized by scripting, rather than documenting, a description of
+the necessary dependencies for software to run, usually
+from the Operating System (\acrshort{os}) on up.''
+} practices with container technology to more efficiently automate tests in a standardized manner.
+
+\clearpage
+
+\input{table/summaryrelatedworks.tex}

@@ -1,0 +1,29 @@
+\begin{table}[ht!]
+    \scriptsize
+    \caption{Maximal Throughput Summary of \cite{kolahi2011performance, srivastava2014evaluation, srivastava2014comparative}}
+    \label{table:experimentsummary}
+    \begin{adjustbox}{center}
+        \renewcommand*\arraystretch{1.5}\begin{tabular}{| L{1.6cm} | L{1.7cm} | L{1.7cm} | L{1.7cm} || L{1.7cm} | L{1.7cm} |}
+
+            \hline
+            \textbf{Tools} & \textbf{\cite{kolahi2011performance} \acrshort{tcp}} & \textbf{\cite{srivastava2014evaluation} \acrshort{tcp}} & \textbf{\cite{srivastava2014comparative} \acrshort{tcp}} & \textbf{\cite{srivastava2014evaluation} \acrshort{udp}} & \textbf{\cite{srivastava2014comparative} \acrshort{udp}}
+            \\ \hline
+            D-ITG & 83.8 \acrshort{mbps} & 6520 \acrshort{mbps} & 16.2 \acrshort{gbps} & 7900 \acrshort{mbps} & 26.7 \acrshort{gbps}
+            \\ \hline
+            Iperf & \textbf{93.1 \acrshort{mbps}} & 5400 \acrshort{mbps} & - & 1.05 \acrshort{mbps} & -
+            \\ \hline
+            Ostinato & - & \textbf{9000 \acrshort{mbps}} & 38.8 \acrshort{gbps} & 9890 \acrshort{mbps} & 36.9 \acrshort{gbps}
+            \\ \hline
+            PackETH & - & 7810 \acrshort{mbps} & \textbf{39.8 \acrshort{gbps}} & \textbf{9980 \acrshort{mbps}} & \textbf{39.8 \acrshort{gbps}}
+            \\ \hline
+            IP Traffic & 76.7 \acrshort{mbps} & - & - & - & -
+            \\ \hline
+            Netperf & 89.9 \acrshort{mbps} & - & - & - & -
+            \\ \hline \hline
+            Iperf multithread & - & 9540 \acrshort{mbps} & - & 12.6 \acrshort{mbps} & -
+            \\ \hline
+            D-ITG multithread & - & 9820 \acrshort{mbps} & 39.9 \acrshort{gbps} & 8450 \acrshort{mbps} & 39.8 \acrshort{gbps}
+            \\ \hline
+        \end{tabular}
+    \end{adjustbox}
+\end{table}

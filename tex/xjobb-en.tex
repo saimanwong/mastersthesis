@@ -1,0 +1,180 @@
+\documentclass[a4paper,11pt]{kth-mag}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[latin1]{}
+\usepackage[swedish,english]{babel}
+\usepackage{modifications}
+\usepackage[numbers, longnamesfirst, sort&compress]{natbib}
+\usepackage[colorlinks=true, citecolor=blue]{hyperref}
+\hypersetup{linktoc=page}
+
+%----------------------------------------------------------------
+%
+% Custom packages
+%
+%----------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage[capitalise, nameinlink, noabbrev]{cleveref}
+\usepackage{adjustbox}
+
+\newcommand*{\skippara}{\par\vspace{\baselineskip} \noindent}
+
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{makecell}
+
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{listings}
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    stepnumber=1,
+    columns=fullflexible,
+    showstringspaces=false,
+    frame=single,
+    breaklines=true,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+
+\usepackage{pgfplotstable, booktabs}
+\usepackage{color, colortbl}
+
+%----------------------------------------------------------------
+%
+% Tikz
+%
+%----------------------------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,backgrounds,calc}
+\tikzset{
+    basic box/.style = {
+        shape = rectangle,
+        align = center,
+        draw  = #1,
+        fill  = #1!25,
+        minimum width=4.4cm,
+        minimum height=1cm,
+        rounded corners
+    },
+    guest os/.style = {
+        shape = rectangle,
+        align = center,
+        draw  = #1,
+        fill  = #1!25,
+        minimum width=2.15cm,
+        minimum height=1cm,
+        rounded corners
+    },
+    app guest os/.style = {
+        shape = rectangle,
+        align = center,
+        draw  = #1,
+        fill  = #1!25,
+        minimum width=2.15cm,
+        minimum height=1cm,
+        rounded corners
+    }
+}
+
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\graphicspath{ {figures/} }
+
+%----------------------------------------------------------------
+%
+% Glossary
+%
+%----------------------------------------------------------------
+\input{glossary.tex}
+
+\title{An Evaluation of Software-Based \\Traffic Generators using Docker}
+\subtitle{}
+\foreigntitle{En Utv\"ardering utav Mjukvarubaserade Trafikgeneratorer med Docker}
+\author{Sai Man Wong}
+\date{}
+\blurb{Master's Thesis at \\
+School of Computer Science Communication, KTH
+\\~\\
+Supervisor: Alexander Kozlov\\
+Examiner: Joakim Gustafson}
+\trita{TRITA xxx yyyy-nn}
+\begin{document}
+\frontmatter
+\pagestyle{empty}
+\removepagenumbers
+\maketitle
+%----------------------------------------------------------------
+%
+% ABSTRACT
+%
+%----------------------------------------------------------------
+\input{chapter/abstract.tex}
+
+%----------------------------------------------------------------
+%
+% Acknowledgements
+%
+%----------------------------------------------------------------
+% \chapter*{Acknowledgements}
+% \lipsum[1]
+% \clearpage
+% \null\clearpage
+%----------------------------------------------------------------
+%
+% TABLE OF CONTENTS
+%
+%----------------------------------------------------------------
+\clearpage
+\tableofcontents*
+\listoffigures
+\clearpage
+\listoftables
+\printglossary[nonumberlist, type=\acronymtype]
+\clearpage
+\mainmatter
+
+\pagestyle{newchap}
+%----------------------------------------------------------------
+%
+% CHAPTER
+%
+%----------------------------------------------------------------
+\input{chapter/introduction.tex}
+\input{chapter/background.tex}
+\input{chapter/relatedwork.tex}
+\input{chapter/experiment.tex}
+\input{chapter/results.tex}
+\input{chapter/discussion.tex}
+\input{chapter/conclusion.tex}
+
+%----------------------------------------------------------------
+%
+% APPENDIX
+%
+%----------------------------------------------------------------
+\appendix
+\addappheadtotoc
+\input{appendix/experimentresults}
+\input{appendix/code}
+
+
+
+%----------------------------------------------------------------
+%
+% References
+%
+%----------------------------------------------------------------
+\bibliographystyle{IEEEtranN}
+\bibliography{IEEEabrv,sources}
+\end{document}

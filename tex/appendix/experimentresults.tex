@@ -1,0 +1,291 @@
+\chapter{Experiment Results in Tables}
+\section{Physical Environment}\label{experiment1}
+
+\begin{table}[ht!]
+\centering
+\caption{Physical Environment -- Theoretical Throughput Table Results}
+\label{host_theoretical}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Packet Size in Bytes},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Throughput in Megabits Per Second},
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={Standard Deviation},
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{plot/host_theoretical.dat}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\caption{Physical Environment -- Iperf Throughput Table Results}
+\label{host_iperf}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Packet Size in Bytes},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Throughput in Megabits Per Second},
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2
+},
+columns/2/.style={
+    column name={Standard Deviation},
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{plot/host_iperf.dat}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\caption{Physical Environment -- Mausezahn Throughput Table Results}
+\label{host_mausezahn}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Packet Size in Bytes},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Throughput in Megabits Per Second},
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2
+},
+columns/2/.style={
+    column name={Standard Deviation},
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{plot/host_mausezahn.dat}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\caption{Physical Environment -- Ostinato Throughput Table Results}
+\label{host_ostinato}
+\small
+\pgfplotstabletypeset[
+columns/0/.style={
+    column name={Packet Size in Bytes},
+    /pgf/number format/.cd,
+    1000 sep={}
+},
+columns/1/.style={
+    column name={Throughput in Megabits Per Second},
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2,
+},
+columns/2/.style={
+    column name={Standard Deviation},
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2
+},
+every head row/.style={
+    before row=\toprule,
+    after row=\midrule
+},
+every last row/.style={
+    after row=\bottomrule
+},
+every odd row/.style={
+    before row={\rowcolor[gray]{.8}}
+}
+]{plot/host_ostinato.dat}
+\end{table}
+
+
+\clearpage
+\section{Virtual Environment}\label{experiment2}
+
+\begin{table}[ht!]
+\centering
+\caption{Virtual Environment -- Theoretical Throughput Table Results}
+\label{vm_theoretical}
+\small
+\pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Packet Size in Bytes},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Throughput in Megabits Per Second},
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=2,
+        1000 sep={}
+    },
+    columns/2/.style={
+        column name={Standard Deviation},
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+]{plot/vm_theoretical.dat}
+\end{table}
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\begin{table}[ht!]
+\centering
+\caption{Virtual Environment -- Iperf Throughput Table Results}
+\label{vm_iperf}
+\small
+\pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Packet Size in Bytes},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Throughput in Megabits Per Second},
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=2,
+        1000 sep={}
+    },
+    columns/2/.style={
+        column name={Standard Deviation},
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+]{plot/vm_iperf.dat}
+\end{table}
+\begin{table}[ht!]
+\centering
+\caption{Virtual Environment -- Mausezahn Throughput Table Results}
+\label{vm_mausezahn}
+\small
+\pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Packet Size in Bytes},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Throughput in Megabits Per Second},
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=2,
+        1000 sep={}
+    },
+    columns/2/.style={
+        column name={Standard Deviation},
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+]{plot/vm_mausezahn.dat}
+\end{table}
+\begin{table}[ht!]
+\centering
+\caption{Virtual Environment -- Ostinato Throughput Table Results}
+\label{vm_ostinato}
+\small
+\pgfplotstabletypeset[
+    columns/0/.style={
+        column name={Packet Size in Bytes},
+        /pgf/number format/.cd,
+        1000 sep={}
+    },
+    columns/1/.style={
+        column name={Throughput in Megabits Per Second},
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=2,
+        1000 sep={}
+    },
+    columns/2/.style={
+        column name={Standard Deviation},
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=2
+    },
+    every head row/.style={
+        before row=\toprule,
+        after row=\midrule
+    },
+    every last row/.style={
+        after row=\bottomrule
+    },
+    every odd row/.style={
+        before row={\rowcolor[gray]{.8}}
+    }
+]{plot/vm_ostinato.dat}
+\end{table}

@@ -1,0 +1,94 @@
+\begin{table}[ht!]
+    \scriptsize
+    \caption{Summery of networking tools from~\cite{mahalakshmi2016study}}
+    \label{trexsummary}
+    \begin{adjustbox}{width=1.25\textwidth, center}
+        \renewcommand*\arraystretch{1.5}\begin{tabular}{| L{3cm} | L{3cm} | L{3cm} | L{3cm} | L{3cm} |}
+            \hline
+            \textbf{Characteristics} & \textbf{Pktgen} & \textbf{TRex} & \textbf{Ostinato} & \textbf{MoonGen} \\ \hline
+            \textbf{1) Availability} &
+            Open Source BSD license &
+            Cisco Tool... Open Source but limited. &
+            Open Source &
+            Free software under the MIT license
+            \\ \hline
+            \textbf{2) Usage with respect to architecture} &
+            Uses DPDK architecture -- Requires EAL &
+            Requires extra hardware for full functionality &
+            Uses DPDK architecture \newline Requires EAL &
+            Uses DPDK architecture -- Requires EAL \newline Also, utilizes hardware features of Intel NICs
+            \\ \hline
+            \textbf{3) Cost of architecture} &
+            Pktgen is free and no additional hardware required &
+            Cisco UCS C220 M3 \newline Rack Server-starts at \$2,397 &
+            Free with no additional hardware requirements &
+            The cost of commodity hardware
+            \\ \hline
+            \textbf{4) Speed in terms of saturation} &
+            Usually 10000 Mbps &
+            Tx= up to 200Gb/sec Rx=up to 200Gb/sec &
+            1/10G line rate &
+            178.5 Mbps, line rate at 120 Gbit/s.
+            \\ \hline
+            \textbf{6) Advantage and disadvantages} &
+            \textbf{Advantage:} Easily Integrable \newline
+            \textbf{Disadvantage:} \newline
+            \textbf{1.} All packet templates need to be available in memory \newline
+            \textbf{2.} Compat problem (Has been resolved now) &
+            \textbf{Advantage:} \newline
+            \textbf{1.} Ready to use. \newline
+            \textbf{2.} With hardware, pcap files can be altered for experiments \newline
+            \textbf{Disadvantage:} \newline
+            \textbf{1.} Extra hardware \newline
+            \textbf{2.} Limited Functionality &
+            \textbf{Advantages:} \newline
+            \textbf{1.} Ready GUI. \newline
+            \textbf{2.} Cross- Platform - Windows, Linux, BS and Mac  \newline
+            \textbf{Disadvantages:} \newline
+            \textbf{1.} Supports DPDK w limited functionality \newline
+            \textbf{2.} A Work in progres with Ds &
+            \textbf{Advantages:} \newline
+            \textbf{1.} Supports precise and accurate timestamping and rate control \newline
+            \textbf{2.} Implemented in software and runs on commodity hardware
+            \textbf{Disadvantages:} \newline
+            \textbf{1.} Unchecked memory accesses can lead to memory corruption
+            \\ \hline
+            \textbf{7) Is any additional hardware required?} &
+            No &
+            Yes. Cisco UCS hardware &
+            No &
+            Yes, commodity hardware.
+            \\ \hline
+            \textbf{8) Is DPDK compatible NIC required?} &
+            Yes &
+            Yes &
+            Yes &
+            Yes
+            \\ \hline
+            \textbf{9) Software and Hardware Requirements } &
+            Ubuntu 13.10 x86\_64, kernel version 3.5.0-25, on a Westmere Dual socket \newline~\newline board running at 2.4GH, with 12GB of ram 6GB pe socket  &
+            Ubuntu 14.10, X86/Intel NIC 1350,82599,XL710  &
+            Windows, Mac OS X 10.5 or later, Debian 8, Ubuntu 13.10 \newline~\newline DPDK compatible NIC  &
+            Windows, Mac OS X 10.5 or later, Debian 8, Ubuntu 13.10 \newline~\newline DPDK compatible NIC
+            \\ \hline
+            \textbf{10) L3 Forward Support?} &
+            Yes &
+            Yes &
+            Yes &
+            Yes
+            \\ \hline
+            \textbf{11) Scalability} &
+            Scalable &
+            Scalable &
+            Scalable &
+            Scalable
+            \\ \hline
+            \textbf{12) Support for L4- L7 layers} &
+            Yes &
+            Yes &
+            Upto L5 &
+            Yes
+            \\ \hline
+        \end{tabular}
+    \end{adjustbox}
+\end{table}
