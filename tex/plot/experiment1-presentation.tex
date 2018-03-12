@@ -1,0 +1,47 @@
+\begin{figure}[h!]
+    \begin{adjustbox}{width=1\textwidth, center}
+        \renewcommand*\arraystretch{1.5}
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={},
+                legend style={font=\scriptsize},
+                x label style = {text height = 0.7cm},
+                xlabel={Packet Size in Bytes},
+                ylabel={Throughput in Megabit Per Second},
+                xmin=0, xmax=4096,
+                ymin=0, ymax=1100,
+                xtick={0, 1000, 2000, 3000, 4000, 5000},
+                ytick={0, 200, 400, 600, 800, 1000},
+                legend pos=south east,
+                ymajorgrids=true,
+                grid style=dashed,
+                height=11cm,
+                width=20cm,
+                /pgf/number format/.cd,
+                1000 sep={}
+                ]
+
+                \addplot [color=black, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2]{../tex/plot/host_theoretical.dat};
+
+                \addplot [color=blue, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2]{../tex/plot/host_ostinato.dat};
+
+                \addplot [style=thick, color=red, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2]{../tex/plot/host_mausezahn.dat};
+
+                \addplot [color=green, mark=o]
+                plot [error bars/.cd, y dir = both, y explicit]
+                table[y error index=2]{../tex/plot/host_iperf.dat};
+
+                \legend{Theoretical, Ostinato, Mausezahn, Iperf}
+
+            \end{axis}
+        \end{tikzpicture}
+    \end{adjustbox}
+    \caption{Throughput Graph Summary in Physical Environment}
+    \label{fig:experiment_host}
+\end{figure}

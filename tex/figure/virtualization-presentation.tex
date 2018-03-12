@@ -1,0 +1,30 @@
+\begin{figure}[h!]
+  \begin{adjustbox}{width=1\textwidth, center}
+    \renewcommand*\arraystretch{1.5}
+    \centering
+    \begin{tikzpicture}[node distance = 1.2cm, thick, nodes = {align = center}, >=latex]
+      \node at (0,0) [basic box = gray] {Hardware};
+      \node at (0,1.1) [basic box = red] {Hypervisor (Type 1)};
+      \node at (-1.135, 2*1.1) [guest os = blue] {Guest OS};
+      \node at (1.135, 2*1.1) [guest os = blue] {Guest OS};
+      \node at (-1.135, 3*1.1) [guest os = blue] {APP};
+      \node at (+1.135, 3*1.1) [guest os = blue] {APP};
+
+      \node at (4.7, 0) [basic box = gray] {Hardware};
+      \node at (4.7, 1.1) [basic box = green] {Host OS};
+      \node at (4.7,2*1.1) [basic box = red] {Hypervisor (Type 2)};
+      \node at (4.7-1.135, 3*1.1) [guest os = blue] {Guest OS};
+      \node at (4.7+1.135, 3*1.1) [guest os = blue] {Guest OS};
+      \node at (4.7-1.135, 4*1.1) [guest os = blue] {APP};
+      \node at (4.7+1.135, 4*1.1) [guest os = blue] {APP};
+
+      \node at (2*4.7, 0) [basic box = gray] {Hardware};
+      \node at (2*4.7, 1.1) [basic box = green] {Host OS};
+      \node at (2*4.7, 2*1.1) [basic box = red] {Virtualization Layer};
+      \node at (9.4-1.135, 3*1.1) [guest os = blue] {Container};
+      \node at (9.4+1.135, 3*1.1) [guest os = blue] {Container};
+    \end{tikzpicture}
+  \end{adjustbox}
+  \caption{Hypervisor-Based (Type 1 and 2) and Container-Based Virtualization}
+  \label{fig:virtualization}
+\end{figure}

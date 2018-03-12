@@ -1,0 +1,26 @@
+\begin{table}[ht!]
+    \scriptsize
+    \caption{Summary of Traffic Generators Types}
+    \label{types}
+    \begin{adjustbox}{center}
+        \renewcommand*\arraystretch{1.0}\begin{tabular}{| L{4cm} | L{7cm} |}
+            \hline
+            \textbf{Replay Engines} & Replay network traffic back to specified NIC from a file which contains prerecorded traffic, usually a pcap-file.
+            \\ \hline
+            \textbf{(*) Maximum Throughput Generators} & Generate maximum of network traffic with the purpose to test overall network performance, for example, over a link.
+            \\ \hline
+            \textbf{Model-Based Generators} & Generate network traffic based on stochastic models.
+            \\ \hline
+            \textbf{High-Level and Auto-Configurable Generators} & Generate traffic from realistic network models and change the parameters accordingly.
+            \\ \hline
+            \textbf{Special Scenario Generators} & Generate network traffic with a specific characteristic, for example, video streaming traffic.
+            \\ \hline \hline
+            \textbf{Application-level Traffic generators} & Generate network traffic of network applications, for example, the traffic behavior between servers and clients.
+            \\ \hline
+            \textbf{Flow-Level Traffic generators} & Generate packets in a particular order that resembles a particular characteristic from source to destination, for example, Internet traffic.
+            \\ \hline
+            \textbf{(*) Packet-Level Traffic Generators} & Generate and craft packets, usually, from layer 2 and up to 7.
+            \\ \hline
+        \end{tabular}
+    \end{adjustbox}
+\end{table}
