@@ -91,6 +91,8 @@
 \usepackage{lipsum}
 \graphicspath{ {figures/} }
 
+\usepackage{pdfpages}
+
 %----------------------------------------------------------------
 %
 % Glossary
@@ -100,7 +102,7 @@
 
 \title{An Evaluation of Software-Based \\Traffic Generators using Docker}
 \subtitle{}
-\foreigntitle{En Utv\"ardering utav Mjukvarubaserade Trafikgeneratorer med Docker}
+\foreigntitle{En utv\"ardering utav mjukvarubaserade trafikgeneratorer med Docker}
 \author{Sai Man Wong}
 \date{}
 \blurb{Master's Thesis in Computer Science at \\
@@ -110,6 +112,7 @@ Supervisor: Alexander Kozlov\\
 Examiner: Joakim Gustafson}
 \trita{}
 \begin{document}
+\includepdf[pages={1}]{cover.pdf}
 \frontmatter
 \pagestyle{empty}
 \removepagenumbers
@@ -177,4 +180,5 @@ Examiner: Joakim Gustafson}
 %----------------------------------------------------------------
 \bibliographystyle{IEEEtranN}
 \bibliography{IEEEabrv,sources}
+\includepdf[pages={2}]{cover.pdf}
 \end{document}
